@@ -1,0 +1,10 @@
+{
+  "name": "測量外業系統",
+  "description": "Remix",
+  "requestFramePermissions": [
+    "geolocation"
+  ],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

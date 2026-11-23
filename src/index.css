@@ -1,0 +1,194 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  :root {
+    --font-sans: 'Plus Jakarta Sans', 'Noto Sans TC', system-ui, -apple-system, sans-serif;
+    --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  }
+
+  html,
+  body,
+  #root {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    font-family: var(--font-sans);
+  }
+}
+
+.font-mono-tabular {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Custom Leaflet Popup & Tooltip Styling for Light / Dark Themes */
+.leaflet-container {
+  font-family: var(--font-sans);
+  background: #e2e8f0;
+}
+
+.dark .leaflet-container {
+  background: #0f172a;
+}
+
+.leaflet-popup-content-wrapper {
+  border-radius: 10px;
+  padding: 0;
+  box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.2), 0 4px 10px -2px rgba(15, 23, 42, 0.1);
+  border: 1px solid #e2e8f0;
+  background-color: #ffffff;
+  color: #0f172a;
+}
+
+.dark .leaflet-popup-content-wrapper {
+  background-color: #1e293b;
+  color: #f8fafc;
+  border-color: #334155;
+  box-shadow: 0 12px 28px -6px rgba(0, 0, 0, 0.5);
+}
+
+.leaflet-popup-tip {
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+}
+
+.dark .leaflet-popup-tip {
+  background-color: #1e293b;
+  border-color: #334155;
+}
+
+.leaflet-popup-content {
+  margin: 0;
+  min-width: 240px;
+}
+
+.leaflet-parcel-label {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  pointer-events: none;
+}
+
+.leaflet-point-label {
+  background-color: rgba(255, 255, 255, 0.95) !important;
+  color: #0f172a !important;
+  border: 1.5px solid rgba(100, 116, 139, 0.85) !important;
+  border-radius: 4px !important;
+  padding: 0 5px !important;
+  font-family: var(--font-mono) !important;
+  font-variant-numeric: tabular-nums !important;
+  font-size: 10px !important;
+  font-weight: 700 !important;
+  line-height: 1.4 !important;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.22) !important;
+  pointer-events: none !important;
+}
+
+.leaflet-point-label::before {
+  display: none !important;
+}
+
+.dark .leaflet-point-label {
+  background-color: rgba(15, 23, 42, 0.93) !important;
+  color: #f8fafc !important;
+  border-color: rgba(100, 116, 139, 0.9) !important;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.55) !important;
+}
+
+.leaflet-parcel-lot-label {
+  color: #0f172a !important;
+  border-color: #334155 !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  padding: 1px 6px !important;
+  white-space: nowrap !important;
+}
+
+.dark .leaflet-parcel-lot-label {
+  color: #f8fafc !important;
+  border-color: #94a3b8 !important;
+}
+
+.leaflet-label-boundary {
+  color: #b91c1c !important;
+  border-color: #dc2626 !important;
+}
+
+.dark .leaflet-label-boundary {
+  color: #fca5a5 !important;
+  border-color: #ef4444 !important;
+}
+
+.leaflet-label-control {
+  color: #047857 !important;
+  border-color: #059669 !important;
+}
+
+.dark .leaflet-label-control {
+  color: #6ee7b7 !important;
+  border-color: #10b981 !important;
+}
+
+.leaflet-label-urban {
+  color: #3730a3 !important;
+  border-color: #4f46e5 !important;
+}
+
+.dark .leaflet-label-urban {
+  color: #a5b4fc !important;
+  border-color: #6366f1 !important;
+}
+
+.leaflet-label-ref {
+  color: #0369a1 !important;
+  border-color: #0284c7 !important;
+}
+
+.dark .leaflet-label-ref {
+  color: #7dd3fc !important;
+  border-color: #0ea5e9 !important;
+}
+
+.leaflet-label-field {
+  color: #c2410c !important;
+  border-color: #ea580c !important;
+}
+
+.dark .leaflet-label-field {
+  color: #fdba74 !important;
+  border-color: #f97316 !important;
+}
+
+/* Thin subtle scrollbar for panels */
+.panel-scroll::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+.panel-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+.panel-scroll::-webkit-scrollbar-thumb {
+  background-color: rgba(148, 163, 184, 0.4);
+  border-radius: 9999px;
+}
+.dark .panel-scroll::-webkit-scrollbar-thumb {
+  background-color: rgba(100, 116, 139, 0.5);
+}
+
+/* Safe area padding helper for mobile bottom sheet */
+.pb-safe {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+@media (max-width: 767px) {
+  [data-mobile-sheet-open='false'] .leaflet-bottom {
+    bottom: 62px !important;
+  }
+
+  [data-mobile-sheet-open='true'] .leaflet-bottom {
+    bottom: calc(35vh + 8px) !important;
+  }
+}
